@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ai-test"
+name = "openfabricAI-test"
 version = "1.0"
 description = "'An application for demonstrating your skills in AI'"
 authors = ["Rockstar"]

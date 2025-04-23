@@ -1,35 +1,28 @@
-from transformers import pipeline
 import logging
-import torch
+import os
+from transformers import pipeline
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class LLM:
-    def __init__(self, model_name="gpt2"):  # Changed to more widely available model
+    def __init__(self, model_name=None):
+        self.model_name = model_name or os.getenv("LLM_MODEL", "distilgpt2")  # Fallback to distilgpt2
         try:
-            self.device = 0 if torch.cuda.is_available() else -1
-            self.generator = pipeline(
-                'text-generation', 
-                model=model_name,
-                device=self.device,
-                torch_dtype=torch.float16 if self.device == 0 else torch.float32
-            )
-            logging.info(f"Initialized LLM: {model_name} on {'GPU' if self.device == 0 else 'CPU'}")
+            self.generator = pipeline('text-generation', model=self.model_name, device=-1)  # CPU fallback
+            logging.info(f"Initialized LLM: {self.model_name}")
         except Exception as e:
-            logging.error(f"Failed to initialize LLM: {str(e)}")
+            logging.error(f"Failed to initialize LLM: {e}")
             raise
 
     def enhance_prompt(self, prompt: str) -> str:
+        if not isinstance(prompt, str) or not prompt.strip():
+            logging.error("Invalid prompt provided")
+            raise ValueError("Prompt must be a non-empty string")
+        instruction = f"Expand this prompt into a vivid, detailed description for image generation: {prompt}"
         try:
-            instruction = f"Expand this prompt into a vivid, detailed description for image generation: {prompt}"
-            response = self.generator(
-                instruction,
-                max_length=200,
-                num_return_sequences=1,
-                temperature=0.7,
-                top_p=0.9,
-                do_sample=True
-            )[0]['generated_text']
+            response = self.generator(instruction, max_length=int(os.getenv("MAX_LENGTH", 200)), num_return_sequences=1)[0]['generated_text']
             return response.strip()
         except Exception as e:
-            logging.error(f"Prompt enhancement failed: {str(e)}")
-            # Fallback to original prompt with basic enhancements
-            return f"{prompt}, highly detailed, digital art, 4K resolution, trending on artstation"
+            logging.error(f"Failed to enhance prompt: {e}")
+            raise
