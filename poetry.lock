@@ -1824,7 +1824,7 @@ Werkzeug = ">=2.0.3"
 
 [package.source]
 type = "legacy"
-url = "https://repo.node2.openfabric.network/index"
+url = "https://repo.node2.openfabric.network/index/openfabric-pysdk"
 reference = "node2"
 
 [[package]]
@@ -3196,4 +3196,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.8"
-content-hash = "b7884475b51df86e76f57ea673af97c15a2cb228f02ba2f383edb10930c5a36f"
+content-hash = "d6fa24994168d2a3c22cd3a9a08775f5db9c99b1f694876d33311f687a70b128"

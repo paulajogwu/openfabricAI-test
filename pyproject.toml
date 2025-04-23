@@ -13,7 +13,7 @@ pytest = "^5.2"
 
 [[tool.poetry.source]]
 name = "node2"
-url = "https://repo.node2.openfabric.network/index"
+url = "https://repo.node2.openfabric.network/index/openfabric-pysdk"
 priority = "supplemental"
 
 [build-system]
