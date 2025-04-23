@@ -5,8 +5,8 @@
 An end-to-end pipeline that transforms text prompts into images and 3D models using a local LLM and Openfabric apps, with memory functionality.
 
 ## Setup
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run locally: `./start.sh` or use Docker: `docker build -t ai-challenge . && docker run -p 8888:8888 ai-challenge`
+1. Install dependencies: `poetry install `
+2. Run locally: `./start.sh``
 3. Access Swagger UI: `http://localhost:8888/swagger-ui`
 4. Run UI: `streamlit run ui.py`
 

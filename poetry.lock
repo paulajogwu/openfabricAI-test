@@ -1797,7 +1797,6 @@ python-versions = ">=3.8,<4.0"
 groups = ["main"]
 files = [
     {file = "openfabric_pysdk-0.3.0-py3-none-any.whl", hash = "sha256:6588a3e8d654043ba0a3569b78b13dab5338d5bcbb2e7a2a7eda44eea500c5fd"},
-    {file = "openfabric_pysdk-0.3.0.tar.gz", hash = "sha256:eaabd2d321e210822ef8327593087ec3698ca29bc21598cf510e8eb427ec97fb"},
 ]
 
 [package.dependencies]
@@ -1823,9 +1822,8 @@ web3 = ">=7.5.0,<8.0.0"
 Werkzeug = ">=2.0.3"
 
 [package.source]
-type = "legacy"
-url = "https://repo.node2.openfabric.network/index/openfabric-pysdk"
-reference = "node2"
+type = "file"
+url = "openfabric_pysdk-0.3.0-py3-none-any.whl"
 
 [[package]]
 name = "ordered-set"
@@ -3196,4 +3194,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.8"
-content-hash = "d6fa24994168d2a3c22cd3a9a08775f5db9c99b1f694876d33311f687a70b128"
+content-hash = "d501a2ffe871646af321a0f13eb6d5b2a4601c918433d6017a54f17ca4ffef11"

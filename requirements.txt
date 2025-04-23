@@ -1,6 +1,5 @@
 transformers==4.44.2
 torch==2.4.1
 streamlit==1.39.0
-openfabric_pysdk==0.3.0  
-sqlite3  
 python-dotenv==1.0.1
+openfabric-pysdk @ https://repo.node2.openfabric.network/index/openfabric-pysdk/openfabric_pysdk-0.3.0-py3-none-any.whl

@@ -1,5 +1,5 @@
 import os
-from openfabric_sdk import Stub
+from openfabric_pysdk import sub
 import logging
 from dotenv import load_dotenv
 

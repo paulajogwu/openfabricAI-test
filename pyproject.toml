@@ -6,14 +6,14 @@ authors = ["Rockstar"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-openfabric-pysdk = "^0.3.0"
+openfabric-pysdk = {path = "openfabric_pysdk-0.3.0-py3-none-any.whl"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 
 [[tool.poetry.source]]
 name = "node2"
-url = "https://repo.node2.openfabric.network/index/openfabric-pysdk"
+url = "https://repo.node2.openfabric.network/index/openfabric-pysdk/openfabric_pysdk-0.3.0-py3-none-any.whl"
 priority = "supplemental"
 
 [build-system]
